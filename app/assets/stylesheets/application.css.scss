@@ -29,6 +29,8 @@ body {
 /* User sign in and sign forms. */
 .border-form-div {
   max-width: 300px;
+  position: relative !important;
+  top: 115px !important;
   padding: 19px 29px 29px;
   margin: 0 auto 20px;
   background-color: #fff;
@@ -55,7 +57,11 @@ body {
 
 .btn-primario {
     background: #4f2a76;
-    color: #ffffff;
+    color: #fff !important;
+}
+
+.btn-secundario{
+  
 }
  
 .btn-primario:active, .btn-primary.active {

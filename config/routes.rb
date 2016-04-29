@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   devise_for :users,
              :controllers =>{:registrations=>'registrations'}
   get 'home/index'
+  get 'mensaje/aviso'
 
   resources :entrevista
   resources :derivacions

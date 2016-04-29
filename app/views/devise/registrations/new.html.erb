@@ -1,11 +1,13 @@
 <div class="border-form-div">
-  <h2>Bienvenido</h2>
+  <h2>Registro</h2>
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
-    <%= f.email_field :email, :autofocus => true, :placeholder => 'Correo Institucional' %>
+    <i>*(Ingrese su correo institucional)</i><br>
+    <%= f.email_field :email, :autofocus => true, :placeholder => 'Correo Institucional' %><br>
     <%= f.hidden_field :password, :value =>  Devise.friendly_token.first(6)%>
   
-    <%= f.submit "Registrarse",:class=>'btn btn-primario' %>
+    <%= f.submit "Aceptar",:class=>'btn btn-primario' %>
+    <%= link_to "Volver", :back, :class=>'btn btn-primario' %>
   <% end %>
 
 </div>
