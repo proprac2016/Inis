@@ -1,0 +1,185 @@
+<html class="no-js" lang="en"><!--<![endif]-->
+
+<head>
+<script type="text/javascript">
+function mostrar_entrevistas(){
+document.getElementById('listEntrevistas').style.display = 'block';
+document.getElementById('entre').className = "active";
+}
+function ocultar_entrevistas(){
+document.getElementById('listEntrevistas').style.display = 'none';
+document.getElementById('entre').className = "";
+}
+
+function mostrar_horarios(){
+document.getElementById('listHorarios').style.display = 'block';
+document.getElementById('horario').className = "active";
+}
+function ocultar_horarios(){
+document.getElementById('listHorarios').style.display = 'none';
+document.getElementById('horario').className = "";
+}
+
+function mostrar_derivaciones(){
+document.getElementById('listDerivaciones').style.display = 'block';
+document.getElementById('derivacion').className = "active";
+}
+function ocultar_derivaciones(){
+document.getElementById('listDerivaciones').style.display = 'none';
+document.getElementById('derivacion').className = "";
+}
+</script>
+
+</head>
+<body>
+<br>
+
+<section id="main">
+    <section class="inner">
+      <article class="container">  
+        <div id="links" class="span8 screen-only">
+          <div class="">
+
+          <!--  Menu Principal Administrar-->
+            <ul class="nav nav-pills pull-right" style="font-size:12px;">
+
+              <li id="entre" class="">
+                <a onclick="mostrar_entrevistas(), ocultar_horarios(),  ocultar_derivaciones()">Entrevistas<i id="bmk-count"></i></a>
+              </li>
+
+              <li id="horario" class="">
+                <a onclick="mostrar_horarios(), ocultar_entrevistas(), ocultar_derivaciones()">Horarios<i id="bmk-count"></i></a>        
+              </li>
+
+              <li id="derivacion" class="">
+                <a onclick="mostrar_derivaciones(), ocultar_horarios(), ocultar_entrevistas()">Derivaciones<i id="bmk-count"></i></a>        
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+
+        <!-- ENTREVISTAS -->
+
+        
+          <div class="form-content">
+            <div class="row-fluid">
+              <div class="container">
+              <div id="listEntrevistas" style="display: none;"  >
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>Asistencia</th>
+                      <th>Tipo</th>
+                      <th colspan="3"></th>
+                    </tr>
+                  </thead>
+                   <tbody>
+                    <% @e.each do |entrevistum| %>
+                      <tr>
+                        <td><%= entrevistum.asistencia_valor %></td>
+                        <td><%= entrevistum.tipo_valor %></td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+                <br>
+              <%= link_to 'Nueva Entrevista', new_entrevistum_path,class:'btn btn-primary' %>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+              </div>
+              <br>
+              </div>
+            </div>
+          </div>
+
+        <!-- HORARIOS -->  
+
+        <div id="listHorarios" style="display: none;" >
+          <div class="form-content">
+            <div class="row-fluid">
+              <div class="container">
+                <h1>Horarios</h1>
+
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Hora Inicial</th>
+                        <th>Hora Final</th>
+                        <th>Día</th>
+                        <th colspan="3"></th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <% @hr.each do |horario| %>
+                        <tr>
+                          <td><%= horario.hora_inicio %></td>
+                          <td><%= horario.hora_fin %></td>
+                          <td><%= horario.dia %></td>
+                          <td><%= link_to 'Show', horario %></td>
+                          <td><%= link_to 'Edit', edit_horario_path(horario) %></td>
+                          <td><%= link_to 'Destroy', horario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+
+                  <br>
+
+                  <%= link_to 'New Horario', new_horario_path %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DERIVACIONES -->
+
+        <div id="listDerivaciones" style="display: none;"  >
+          <div class="form-content">
+            <div class="row-fluid">
+              <div class="container">
+                <h1>Derivaciones</h1>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Observaciones</th>
+                        <th colspan="3"></th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <% @driv.each do |derivacion| %>
+                        <tr>
+                          <td><%= derivacion.observaciones %></td>
+                          <td><%= link_to 'Show', derivacion %></td>
+                          <td><%= link_to 'Edit', edit_derivacion_path(derivacion) %></td>
+                          <td><%= link_to 'Destroy', derivacion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                  <br>
+                  <%= link_to 'New Derivacion', new_derivacion_path %>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+              </div>
+              <br>
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+      </article>
+    </section>
+  </section>
+</body>
+</html>

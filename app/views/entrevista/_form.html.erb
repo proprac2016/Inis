@@ -1,0 +1,25 @@
+<%= form_for(@entrevistum) do |f| %>
+  <% if @entrevistum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@entrevistum.errors.count, "error") %> prohibited this entrevistum from being saved:</h2>
+
+      <ul>
+      <% @entrevistum.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="field">
+    <%= f.label :asistencia %><br>
+    <%= f.select :asistencia, [['Presente', true], ['Ausente', false]], prompt: "Seleccionar" %>
+  </div>
+  <div class="field">
+    <%= f.label :tipo %><br>
+    <%= f.select :tipo, [['Privada', true], ['Grupal', false]], prompt: "Seleccionar" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

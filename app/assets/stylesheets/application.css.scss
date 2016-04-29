@@ -1,0 +1,256 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+*/
+ @import "bootstrap";
+
+
+
+body {
+  margin: 0;
+  color: #303030 !important;
+  background-color: #F7F7F7 !important;
+  background-image: url("/assets/images/body_bg.jpg") !important;
+  background-repeat: repeat !important;
+}
+
+
+/* User sign in and sign forms. */
+.border-form-div {
+  max-width: 300px;
+  padding: 19px 29px 29px;
+  margin: 0 auto 20px;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+          box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+.border-form-div .form-signin-heading,
+.border-form-div .checkbox {
+  margin-bottom: 10px;
+}
+.border-form-div input[type="text"],
+.border-form-div input[type="email"],
+.border-form-div input[type="password"] {
+  font-size: 16px;
+  height: auto;
+  margin-bottom: 15px;
+  padding: 7px 9px;
+}
+
+.btn-primario {
+    background: #4f2a76;
+    color: #ffffff;
+}
+ 
+.btn-primario:active, .btn-primary.active {
+    background: #4c296d;
+    box-shadow: none;
+}
+
+
+body {
+    background-image: url('body_bg.jpg');
+    background-repeat: repeat;
+    background-color: #FFF;
+}
+
+
+ body {
+    font-family: "Open Sans",Arial,sans-serif;
+    font-size: 12px;
+    line-height: 18px;
+    color: #333;
+}
+* {
+    background-repeat: no-repeat;
+} 
+/* Barra superior de administracion*/
+header {
+    display: block;
+}
+#uap_header {
+    box-shadow: 0px 0px 9px #999;
+    -moz-box-shadow:#999 0px 0px 9px;
+  box-shadow:#999 0px 0px 9px
+}
+
+.navbar {
+    overflow: visible;
+    /*margin-bottom: 18px;*/
+}
+
+.navbar-fixed-top{
+    position: fixed;
+    right: 0px;
+    left: 0px;
+    z-index: 1030;
+    margin-bottom: 0px;
+    top: 0px;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-inner {
+    min-height: 40px !important;
+
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1);
+
+   padding-left: 0px;
+    padding-left-value: 0px;
+    padding-left-ltr-source: physical;
+    padding-left-rtl-source: physical;
+   padding-right: 0px;
+    padding-right-value: 0px;
+    padding-right-ltr-source: physical;
+    padding-right-rtl-source: physical;
+  border-radius: 0px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+
+      border-width: 0px 0px 1px;
+
+      background-color: #F3F3F7;
+    background-image: linear-gradient(to bottom, #FAFAFE, #EAEAEE);
+    background-repeat: repeat-x;
+    border: 1px solid #C8C8D3;
+
+  }
+
+
+.container {
+    width: 1170px;
+    margin-right: auto;
+    margin-right-value: auto;
+    margin-right-ltr-source: physical;
+    margin-right-rtl-source: physical;
+    margin-left: auto;
+    margin-left-value: auto;
+    margin-left-ltr-source: physical;
+    margin-left-rtl-source: physical;
+}
+
+#uap_logo {
+    margin: 8px;    
+    width: 150px;
+    height: 34px;
+}
+
+.pull-left {
+    float: left;
+}
+
+
+
+/*Barra Inferior Administracion*/
+#uap_footer {
+    border-top: 1px solid #DDD;
+    min-height: 45px;
+    background-color: #EEE;
+}
+.navbar {
+    overflow: visible;   
+}
+
+.navbar-fixed-bottom {
+    position: fixed;
+    right: 0px;
+    left: 0px;
+    z-index: 1030;
+    margin-bottom: 0px;
+    bottom: 0px;
+}
+
+.uap_logo { 
+ 
+    width: 315px;
+    height: 25px;
+    margin: 0px !important;
+}
+.pull-right {
+    float: right;
+}
+.copyright {
+    margin: 5px 0px;
+    color: #AAA;
+}
+.pull-left {
+    float: left;
+}
+.inner {
+    margin: 8px 25px 12px;
+}
+
+/*BOTON LOGIN*/
+
+.nav.pull-right {
+    float: right;
+    margin-right: 0px;
+}
+.navbar .nav {
+    position: relative;
+    left: 0px;
+    display: block;
+    float: right;
+    margin: 0px 10px 0px 0px;
+}
+
+.btn-toolbar {
+    margin: 0px !important;
+}
+
+.nav {
+    list-style: none outside none;
+}
+
+.login_button {
+    margin-top: 10px !important;
+}
+.btn-group {
+    position: relative;
+    display: inline-block;
+    font-size: 0px;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+#ini{
+  color:white;
+
+}
+
+.btn-primary{
+  background-image: linear-gradient(to bottom, #714a84 0%, #53246a 100%) !important; 
+  border-color: #4f2a76 !important;
+}
+
+.btn-secondary{
+  background-image: linear-gradient(to bottom, #a48239 0%, #8B7134 100%) !important;
+  border-color: #785e25 !important;
+  height: 34px !important; 
+ }
+
+.glyphicon {
+    position: relative;
+    top: 2px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings' !important;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+}

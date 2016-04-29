@@ -1,0 +1,29 @@
+<body>
+  <h2 id="uap_page_header"> 
+    <div class="container">
+      <div class="col-lg-12">
+        ¿Olvidaste tu contraseña?
+      </div>
+    </div>
+  </h2><hr>
+    
+  <div class="container container-login">
+     
+	<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+	  <%= devise_error_messages! %>
+
+	  <div class="field">
+	    <%= f.label :email %><br />
+	    <%= f.email_field :email, autofocus: true %>
+	  </div>
+
+	  <div class="actions">
+	    <%= f.submit "Enviame las instrucciones para restablecer la contraseña" %>
+	  </div>
+	<% end %>
+
+	<%= render "devise/shared/links" %>   
+    
+  </div> 
+</body>
+

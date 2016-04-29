@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Derivacions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Observaciones</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @derivacions.each do |derivacion| %>
+      <tr>
+        <td><%= derivacion.observaciones %></td>
+        <td><%= link_to 'Show', derivacion %></td>
+        <td><%= link_to 'Edit', edit_derivacion_path(derivacion) %></td>
+        <td><%= link_to 'Destroy', derivacion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Derivacion', new_derivacion_path %>

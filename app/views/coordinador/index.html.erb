@@ -1,0 +1,296 @@
+<html class="no-js" lang="en"><!--<![endif]-->
+
+<head>
+  <script type="text/javascript">
+function mostrar_motivos(){
+document.getElementById('listmotivos').style.display = 'block';
+document.getElementById('gato').className = "active";
+}
+function ocultar_motivos(){
+document.getElementById('listmotivos').style.display = 'none';
+document.getElementById('gato').className = "";
+}
+
+function mostrar_aulas(){
+document.getElementById('listAulas').style.display = 'block';
+document.getElementById('gatito').className = "active";
+}
+function ocultar_aulas(){
+document.getElementById('listAulas').style.display = 'none';
+document.getElementById('gatito').className = "";
+}
+
+function mostrar_departamentos(){
+document.getElementById('listDepartamentos').style.display = 'block';
+document.getElementById('dpto').className = "active";
+}
+function ocultar_departamentos(){
+document.getElementById('listDepartamentos').style.display = 'none';
+document.getElementById('dpto').className = "";
+}
+
+function mostrar_wuacho(){
+document.getElementById('wuacho').className = "open";
+}
+</script>
+
+</head>
+<body>
+<br>
+
+<section id="main">
+    <section class="inner">
+      <article class="container">  
+        <div id="links" class="span8 screen-only">
+          <div class="">
+
+          <!--  Menu Principal Administrar-->
+            <ul class="nav nav-pills pull-right" style="font-size:12px;">
+
+              <li id="gatito" class="">
+                <a onclick="mostrar_aulas(), ocultar_motivos(),  ocultar_departamentos()">Aulas <i id="bmk-count"></i></a>
+              </li>
+
+              <li id="gato" class="">
+                <a onclick="mostrar_motivos(), ocultar_aulas(), ocultar_departamentos()">Motivos <i id="bmk-count"></i></a>        
+              </li>
+
+              <li id="dpto" class="">
+                <a onclick="mostrar_departamentos(), ocultar_motivos(), ocultar_aulas(), otro()">Departamentos<i id="bmk-count"></i></a>        
+              </li>
+              <li>
+
+                <a onclick="mostrar_motivos(), ocultar_aulas(), ocultar_departamentos()">Datos Estadísticos<i id="bmk-count"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- MOTIVOS -->
+
+        <div id="listmotivos" style="display: none;"  >
+          <div class="form-content">
+            <div class="row-fluid">
+              <div class="container">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th><h2> Tipo </h2></th>
+                      <th colspan="3"></th>
+                    </tr>
+                  </thead>
+                   <tbody>
+                    <% @m.each do |motivo| %>
+                      <tr>
+                        <td><%= motivo.tipo %></td>
+                        <td><%= link_to 'Modificar', edit_motivo_path(motivo),class:'btn btn-success' %></td>
+                        <td><%= link_to 'Eliminar', motivo,class:'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+                <%= link_to 'Nuevo', new_motivo_path,class:'btn btn-primary' %>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+              </div>
+              <br>
+            </div>
+          </div>
+        </div>
+
+        <!-- AULAS -->  
+
+        <div id="listAulas" style="display: none;" >
+          <div class="form-content">
+            <div class="row-fluid">
+              <div class="container">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>Nombre</th>
+                      <th colspan="3"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @ma.each do |aula| %>
+                      <tr>
+                        <td><%= aula.nombre %></td>
+                        <td><%= link_to 'Modificar', edit_aula_path(aula),class:'btn btn-success' %></td>
+                        <td><%= link_to 'Eliminar', aula,class:'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+                <br>
+                <%= link_to 'Nueva Aula', new_aula_path,class:'btn btn-primary' %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DEPARTAMENTOS -->
+
+        <div id="listDepartamentos" style="display: none;"  >
+          <div class="form-content">
+            <div class="row-fluid">
+              <div class="container">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th><h2> Nombre </h2></th>
+                      <th colspan="3"></th>
+                    </tr>
+                  </thead>
+                   <tbody>
+                    <% @dp.each do |departamento| %>
+                      <tr>
+                        <td><%= departamento.nombre %></td>
+                        <td><%= link_to 'Modificar', edit_departamento_path(departamento),class:'btn btn-success' %></td>
+                        <td><%= link_to 'Eliminar', departamento,class:'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+                <%= link_to 'Nuevo Departamento', new_departamento_path,class:'btn btn-primary' %>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+              </div>
+              <br>
+            </div>
+          </div>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+      </article>
+    </section>
+  </section>
+
+
+
+
+
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+      <a class="navbar-brand" href="#">NavBar</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="https://github.com/fontenele/bootstrap-navbar-dropdowns" target="_blank">GitHub Project</a></li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li id="wuacho" class="">
+          <a onclick="mostrar_wuacho()", href="#" class="dropdown-toggle" data-toggle="dropdown">Menu 1 <b class="caret"></b></a>
+          <ul class="dropdown-menu multi-level">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+            <li class="dropdown-submenu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li class="dropdown-submenu">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
+                  <ul class="dropdown-menu">
+                    <li class="dropdown-submenu">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">One more separated link</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu 2 <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+            <li class="dropdown-submenu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-submenu">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
+                  <ul class="dropdown-menu">
+                    <li class="dropdown-submenu">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">One more separated link</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!--/.nav-collapse -->
+  </div>
+</div>
+
+<div class="container">
+  <div class="navbar-template text-center">
+    <h1>Bootstrap NavBar</h1>
+    <p class="lead text-info">NavBar with too many childs.</p>
+    <a target="_blank" href="http://bootsnipp.com/snippets/featured/multi-level-dropdown-menu-bs3">Thanks to msurguy (Multi level dropdown menu BS3)</a>
+  </div>
+</div>
+
+
+
+
+
+
+
+  
+</body>
+</html>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hora_inicio: 2016-04-17 17:19:01
+  hora_fin: 2016-04-17 17:19:01
+  dia: 2016-04-17
+
+two:
+  hora_inicio: 2016-04-17 17:19:01
+  hora_fin: 2016-04-17 17:19:01
+  dia: 2016-04-17
