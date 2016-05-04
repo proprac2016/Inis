@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require_self
+ *= require fullcalendar
  *= require_tree .
 */
  @import "bootstrap";
