@@ -1,25 +1,41 @@
-<%= form_for(@entrevistum) do |f| %>
-  <% if @entrevistum.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@entrevistum.errors.count, "error") %> prohibited this entrevistum from being saved:</h2>
 
-      <ul>
-      <% @entrevistum.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+
+
+<div class="titulo-form-corp"><h2>Registro de Consultas</h2></div>
+<hr class="hr_corp"></hr>
+<div class="border-form-div-corp">  
+  <h4 align="center">Ingrese los datos</h4>
+  <hr>
+  <div class="cont-col-corp">  
+    <%= form_for(@entrevistum) do |f| %>
+      <% if @entrevistum.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@entrevistum.errors.count, "error") %> prohibited this entrevistum from being saved:</h2>
+
+          <ul>
+          <% @entrevistum.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-    <div class="field">
-    <%= f.label :asistencia %><br>
-    <%= f.select :asistencia, [['Presente', true], ['Ausente', false]], prompt: "Seleccionar" %>
+        <div class="field-corp" class="f-control">
+          <%= f.label :asistencia %><br>
+          <%= f.select :asistencia, [['Presente', true], ['Ausente', false]], prompt: "Seleccionar" %>
+        </div><br>
+        <div class="field-corp" class="f-control">
+          <%= f.label :tipo %><br>
+          <%= f.select :tipo, [['Privada', true], ['Grupal', false]], prompt: "Seleccionar" %>
+        </div><br>
+        <div class="actions">
+          <%= f.submit "Aceptar",:class=>'btn btn-primario-azul' %>
+          <%= link_to 'Volver', aulas_path, :class=>'btn btn-success' %>
+        </div>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :tipo %><br>
-    <%= f.select :tipo, [['Privada', true], ['Grupal', false]], prompt: "Seleccionar" %>
+  <hr>
+  <div class="pie-formulario">
+    <p class="mensaje-pie-formulario">Mensaje final del formulario</p>
+    <br>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

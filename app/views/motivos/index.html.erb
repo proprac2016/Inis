@@ -1,29 +1,7 @@
-<p id="notice"><%= notice %></p>
+
 
 <html class="no-js" lang="en"><!--<![endif]-->
-
-<body>  
-  <section id="main">
-    <section class="inner">
-      <article class="container">  
-        <div id="links" class="span8 screen-only">
-          <div class="">
-            <ul class="nav nav-pills pull-right" style="font-size:12px;">
-              <li class="active">
-                <a href="/aulas">Aulas</a>
-              </li>
-              <li>
-                <a href="/motivos">Motivos <i id="bmk-count"></i></a>        
-              </li>
-              <li>
-                <a href="/entrevista">Entrevistas</a>
-              </li>
-              <li>
-                <a href="/reserves">Datos Estadísticos</a>
-              </li>
-            </ul>
-          </div>
-        </div>
+ 
         <div id="content">
           <div class="form-content">
             <div class="row-fluid">
@@ -31,7 +9,7 @@
                 <table class="table table-hover">
                   <thead>
                     <tr>
-                      <th><h2> Tipo </h2></th>
+                      <th>Tipo de Motivo </th>
                       <th colspan="3"></th>
                     </tr>
                   </thead>
@@ -47,18 +25,6 @@
                 </table>
                 <%= link_to 'Nuevo', new_motivo_path,class:'btn btn-primary' %>
               </div>
-              <br>
-              <div class="inner">
-                <h3 class="uap_logo pull-left"><span>Universidad Adventista del Plata</span></h3>
-                <p class="copyright pull-right">© 2016 UAP - Gerencia INIS</p>
-                <br>
-                <br>
-              </div>
-            </div>
           </div>
         </div>
-      </article>
-    </section>
-  </section>
-</body>
 </html>

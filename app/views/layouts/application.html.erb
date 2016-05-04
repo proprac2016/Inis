@@ -14,51 +14,62 @@
   </head>
 
   <body>
-    <header id="uap_header" class="navbar navbar-fixed-top screen-only">
-      <div class="navbar-inner">
-        <div class="content container">    
-          <div id="uap_logo" class="pull-left screen-only">
-             <%= image_tag "logo_uap_online.png" %> 
-          </div>
-          <div class="nav-collapse screen-only">
-            <div id="uap_session" class="nav pull-right">
-              <div id="uap_rack_cas" class="btn-toolbar pull-right">
-                <% if user_signed_in? %>      
-                  <div class="login_button btn-group">
-                   <a id="ini" class="btn btn-primary" href="/users/sign_in"> 
-                      <i class="fa fa-user">
-                        <% @correo = current_user.email %>
-                        <% @correo_acot = @correo.split("@")[0] %>
-                        <%= @correo_acot %>
-                      </i></a>
-                    <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">
-                      <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a><%= link_to "Cambio de Contraseña", edit_user_registration_path %></a></li>
-                      <li><a href=""><%= link_to "Cerrar", destroy_user_session_path, method: :delete %></a></li>
-                    </ul>
-                  </div>
-                <% end %>
+    <% if user_signed_in? %> 
+      <header id="uap_header" class="navbar navbar-fixed-top screen-only">
+        <div class="navbar-inner">
+          <div class="content container">    
+            <div id="uap_logo" class="pull-left screen-only">
+               <%= image_tag "logo_uap_online.png" %> 
+            </div>
+            <div class="nav-collapse screen-only">
+              <div id="uap_session" class="nav pull-right">
+                <div id="uap_rack_cas" class="btn-toolbar pull-right">     
+                    <div class="login_button btn-group">
+                     <a id="ini" class="btn btn-secundario" href="/users/sign_in"> 
+                        <i class="fa fa-user">
+                          <% @correo = current_user.email %>
+                          <% @correo_acot = @correo.split("@")[0] %>
+                          <%= @correo_acot %>
+                        </i></a>
+                      <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">
+                        <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a><%= link_to "Cambio de Contraseña", edit_user_registration_path %></a></li>
+                        <li><a href=""><%= link_to "Cerrar", destroy_user_session_path, method: :delete %></a></li>
+                      </ul>
+                    </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
+    <% else %>
+      <header id="uap_header" class="navbar navbar-fixed-top uap_online_navbar_full">
+        <div class="container2">
+          <div class="nav-brand_secundario">
+            <%= image_tag "logo_head.png" %>
+          </div>
+          <div class="collapse navbar-collapse navHeaderCollapse">
+            <ul class="nav navbar-nav navbar-rigth">
+              <img class="uap_taco" alt="Uap taco" src="/assets/uap_taco.jpg"></img>
+            </ul>
+          </div>
+        </div>
+      </header>
+    <% end %>
+
     <%= yield %>
 
-        <footer id="uap_footer" class="navbar navbar-fixed-bottom">
-          <section class="container">
-            <div class="inner">
-              <div class="uap_logo pull-left"><%= image_tag "logo_uap.png" %></div>
-               <div class="copyright pull-right"> <p> © 2016 UAP - INIS</p></div>
-              
-            </div>
-          </section>
-        </footer>
-    
-
+    <footer id="uap_footer" class="navbar navbar-fixed-bottom">
+      <section class="container">
+        <div class="inner">
+          <div class="uap_logo pull-left"><%= image_tag "logo_uap.png" %></div>
+           <div class="copyright pull-right"> <p> © 2016 UAP - INIS</p></div>
+          
+        </div>
+      </section>
+    </footer>
   </body>
-
 </html>

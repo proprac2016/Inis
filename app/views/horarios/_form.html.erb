@@ -1,29 +1,48 @@
-<%= form_for(@horario) do |f| %>
-  <% if @horario.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@horario.errors.count, "error") %> prohibited this horario from being saved:</h2>
 
-      <ul>
-      <% @horario.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<div class="titulo-form-corp"><h2>Registro de Horarios de Consulta</h2></div>
+<hr class="hr_corp"></hr>
+<div class="border-form-div-corp">  
+  <h4 align="center">Ingrese los datos</h4>
+  <hr>
+  <div class="cont-col-corp">  
+    <%= form_for(@horario) do |f| %>
+      <% if @horario.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@horario.errors.count, "error") %> prohibited this horario from being saved:</h2>
+
+          <ul>
+          <% @horario.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
+      <div class="field-corp" class="f-control">
+        <%= f.label :dia %><br>
+        <%= f.date_select :dia, {:discard_year => true} %>
+      </div>
+      
 
-  <div class="field">
-    <%= f.label :hora_inicio %><br>
-    <%= f.time_select :hora_inicio, {minute_step: 30, :start_hour => 6, :end_hour => 20} %>
+
+      <div class="field-corp" class="f-control">
+        <%= f.label :hora_inicio %><br>
+        <%= f.time_select :hora_inicio, {minute_step: 30, :start_hour => 6, :end_hour => 20} %>
+      </div>
+
+
+
+      <div class="field-corp" class="f-control">
+        <%= f.label :hora_fin %><br>
+        <%= f.time_select :hora_fin, {minute_step: 30, :start_hour => 6, :end_hour => 20} %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Aceptar",:class=>'btn btn-primario-azul' %>
+        <%= link_to 'Volver', aulas_path, :class=>'btn btn-success' %>
+      </div>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :hora_fin %><br>
-    <%= f.time_select :hora_fin, {minute_step: 30, :start_hour => 6, :end_hour => 20} %>
+  <hr>
+  <div class="pie-formulario">
+    <p class="mensaje-pie-formulario">Mensaje final del formulario</p><br>
   </div>
-  <div class="field">
-    <%= f.label :dia %><br>
-    <%= f.date_select :dia, {:discard_year => true} %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

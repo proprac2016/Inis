@@ -1,21 +1,37 @@
-<%= form_for(@motivo) do |f| %>
-  <% if @motivo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@motivo.errors.count, "error") %> prohibited this motivo from being saved:</h2>
 
-      <ul>
-      <% @motivo.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+
+
+<div class="titulo-form-corp"><h2>Registro de Motivos</h2></div>
+<hr class="hr_corp"></hr>
+<div class="border-form-div-corp">  
+  <h4 align="center">Ingrese los datos</h4>
+  <hr>
+  <div class="cont-col-corp">  
+    <%= form_for(@motivo) do |f| %>
+      <% if @motivo.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@motivo.errors.count, "error") %> prohibited this motivo from being saved:</h2>
+
+          <ul>
+          <% @motivo.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :tipo %><br>
-    <%= f.text_field :tipo %>
+        <div class="field-corp" class="f-control">
+          <%= f.label :tipo_de_motivo %><br>
+        <%= f.text_field :tipo %>
+        </div>
+        <div class="actions">
+          <%= f.submit "Aceptar",:class=>'btn btn-primario-azul' %>
+          <%= link_to 'Volver', aulas_path, :class=>'btn btn-success' %>
+        </div>
+    <% end %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <hr>
+  <div class="pie-formulario">
+    <p class="mensaje-pie-formulario">Mensaje final del formulario</p>
+    <br>
   </div>
-<% end %>
+</div>

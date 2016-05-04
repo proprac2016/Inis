@@ -1,27 +1,31 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Listing Departamentos</h1>
+<html class="no-js" lang="en"><!--<![endif]-->
+  
+  <div class="form-content">
+   <div class="row-fluid">
+        <div class="container">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @departamentos.each do |departamento| %>
-      <tr>
-        <td><%= departamento.nombre %></td>
-        <td><%= link_to 'Show', departamento %></td>
-        <td><%= link_to 'Edit', edit_departamento_path(departamento) %></td>
-        <td><%= link_to 'Destroy', departamento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Departamento', new_departamento_path %>
+            <tbody>
+              <% @departamentos.each do |departamento| %>
+                <tr>
+                  <td><%= departamento.nombre %></td>
+                  <td><%= link_to 'Modificar', edit_departamento_path(departamento),class:'btn btn-success' %></td>
+                  <td><%= link_to 'Eliminar', departamento,class:'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        <br>
+        <%= link_to 'Nueva Departamento', new_departamento_path, class:'btn btn-primary' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</html>
