@@ -28,8 +28,8 @@ class EntrevistaController < ApplicationController
 
     respond_to do |format|
       if @entrevistum.save
-        format.html { redirect_to @entrevistum, notice: 'Entrevistum was successfully created.' }
-        format.json { render :show, status: :created, location: @entrevistum }
+        format.html { redirect_to entrevista_path, notice: 'Entrevistum was successfully created.' }
+        format.json { render :index, status: :created, location: @entrevistum }
       else
         format.html { render :new }
         format.json { render json: @entrevistum.errors, status: :unprocessable_entity }
@@ -42,8 +42,8 @@ class EntrevistaController < ApplicationController
   def update
     respond_to do |format|
       if @entrevistum.update(entrevistum_params)
-        format.html { redirect_to @entrevistum, notice: 'Entrevistum was successfully updated.' }
-        format.json { render :show, status: :ok, location: @entrevistum }
+        format.html { redirect_to entrevista_path, notice: 'Entrevistum was successfully created.' }
+        format.json { render :index, status: :created, location: @entrevistum }
       else
         format.html { render :edit }
         format.json { render json: @entrevistum.errors, status: :unprocessable_entity }

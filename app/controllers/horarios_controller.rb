@@ -28,8 +28,8 @@ class HorariosController < ApplicationController
 
     respond_to do |format|
       if @horario.save
-        format.html { redirect_to @horario, notice: 'Horario was successfully created.' }
-        format.json { render :show, status: :created, location: @horario }
+        format.html { redirect_to horarios_path, notice: 'Horario was successfully created.' }
+        format.json { render :index, status: :created, location: @horario }
       else
         format.html { render :new }
         format.json { render json: @horario.errors, status: :unprocessable_entity }
@@ -42,8 +42,8 @@ class HorariosController < ApplicationController
   def update
     respond_to do |format|
       if @horario.update(horario_params)
-        format.html { redirect_to @horario, notice: 'Horario was successfully updated.' }
-        format.json { render :show, status: :ok, location: @horario }
+        format.html { redirect_to horarios_path, notice: 'Horario was successfully created.' }
+        format.json { render :index, status: :created, location: @horario }
       else
         format.html { render :edit }
         format.json { render json: @horario.errors, status: :unprocessable_entity }

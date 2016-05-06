@@ -28,8 +28,8 @@ class MotivosController < ApplicationController
 
     respond_to do |format|
       if @motivo.save
-        format.html { redirect_to @motivo, notice: 'Motivo was successfully created.' }
-        format.json { render :show, status: :created, location: @motivo }
+        format.html { redirect_to motivos_path, notice: 'Motivo was successfully created.' }
+        format.json { render :index, status: :created, location: @motivo }
       else
         format.html { render :new }
         format.json { render json: @motivo.errors, status: :unprocessable_entity }
@@ -42,8 +42,8 @@ class MotivosController < ApplicationController
   def update
     respond_to do |format|
       if @motivo.update(motivo_params)
-        format.html { redirect_to @motivo, notice: 'Motivo was successfully updated.' }
-        format.json { render :show, status: :ok, location: @motivo }
+        format.html { redirect_to motivos_path, notice: 'Motivo was successfully created.' }
+        format.json { render :index, status: :created, location: @motivo }
       else
         format.html { render :edit }
         format.json { render json: @motivo.errors, status: :unprocessable_entity }

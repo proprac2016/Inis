@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'bootstrap-datepicker-rails'
+
 gem 'bootstrap-sass'
 gem 'twitter-bootstrap-rails'
 gem 'less-rails'

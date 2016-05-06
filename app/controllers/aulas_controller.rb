@@ -28,8 +28,8 @@ class AulasController < ApplicationController
 
     respond_to do |format|
       if @aula.save
-        format.html { redirect_to @aula, notice: 'Aula was successfully created.' }
-        format.json { render :show, status: :created, location: @aula }
+        format.html { redirect_to aulas_path, notice: 'Aula was successfully created.' }
+        format.json { render :index, status: :created, location: @aula }
       else
         format.html { render :new }
         format.json { render json: @aula.errors, status: :unprocessable_entity }
@@ -42,8 +42,8 @@ class AulasController < ApplicationController
   def update
     respond_to do |format|
       if @aula.update(aula_params)
-        format.html { redirect_to @aula, notice: 'Aula was successfully updated.' }
-        format.json { render :show, status: :ok, location: @aula }
+        format.html { redirect_to aulas_path, notice: 'Aula was successfully created.' }
+        format.json { render :index, status: :created, location: @aula }
       else
         format.html { render :edit }
         format.json { render json: @aula.errors, status: :unprocessable_entity }

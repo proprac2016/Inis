@@ -28,8 +28,8 @@ class DerivacionsController < ApplicationController
 
     respond_to do |format|
       if @derivacion.save
-        format.html { redirect_to @derivacion, notice: 'Derivacion was successfully created.' }
-        format.json { render :show, status: :created, location: @derivacion }
+        format.html { redirect_to derivacions_path, notice: 'Derivacion was successfully created.' }
+        format.json { render :index, status: :created, location: @derivacion }
       else
         format.html { render :new }
         format.json { render json: @derivacion.errors, status: :unprocessable_entity }
@@ -42,8 +42,8 @@ class DerivacionsController < ApplicationController
   def update
     respond_to do |format|
       if @derivacion.update(derivacion_params)
-        format.html { redirect_to @derivacion, notice: 'Derivacion was successfully updated.' }
-        format.json { render :show, status: :ok, location: @derivacion }
+        format.html { redirect_to derivacions_path, notice: 'Derivacion was successfully created.' }
+        format.json { render :index, status: :created, location: @derivacion }
       else
         format.html { render :edit }
         format.json { render json: @derivacion.errors, status: :unprocessable_entity }
