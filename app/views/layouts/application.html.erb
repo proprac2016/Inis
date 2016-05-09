@@ -19,7 +19,8 @@
 
 
     <!--VER IDIOMA -->
-    <script src="/lang/es.js"></script> 
+    <script src='fullcalendar/lang/es.js'></script>
+     
     <!--VER IDIOMA -->
 
     <script src='http://fullcalendar.io/js/fullcalendar-2.1.1/fullcalendar.min.js'></script>
@@ -49,13 +50,13 @@
           },
 
           header: {
-              left: 'prev,next today myCustomButton',
+              left: 'prev,next myCustomButton',
               center: 'title',
               right: 'month,agendaWeek,agendaDay'
           },
 
 
-          theme: true, //TEMA DE LA GEMA
+          theme: false, //TEMA DE LA GEMA
 
           monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
           dayNames: ['Domingo','Lunes','Martes','Miercoles','Jueves','Viernes','Sábado'],
@@ -63,17 +64,15 @@
 
           eventClick: function(calEvent, view) {
 
-        alert('Event: ' + calEvent.title);
-        
-        alert('View: ' + view.name);
-
-        // change the border color just for fun
-        $(this).css('border-color', '#440f61');
-
-    } 
+            alert('Event: ' + calEvent.title);            
+            alert('View: ' + view.name);
+            // change the border color just for fun
+            $(this).css('border-color', '#440f61');
+           } 
           
 
         })
+        
       });
     </script>
     	
