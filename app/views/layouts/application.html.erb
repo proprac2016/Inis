@@ -19,7 +19,7 @@
 
 
     <!--VER IDIOMA -->
-    <script src='fullcalendar/lang/es.js'></script>
+    <script src='/lang-all.js'></script>
      
     <!--VER IDIOMA -->
 
@@ -32,6 +32,7 @@
         $('#calendar').fullCalendar
         ({
 
+          lang: 'es',
           events: '/events.json', //MUESTRA LOS EVENTOS 
           customButtons: 
           {
@@ -68,7 +69,21 @@
             alert('View: ' + view.name);
             // change the border color just for fun
             $(this).css('border-color', '#440f61');
-           } 
+           },
+
+           // MOVER EVENTOS DE UNA FECHA A OTRA
+
+          editable: true,
+          eventDrop: function(event, delta, revertFunc) 
+          {
+
+              alert(event.title + " was dropped on " + event.start.format());
+
+              if (!confirm("Are you sure about this change?")) {
+                  revertFunc();
+              }
+
+          } 
           
 
         })
