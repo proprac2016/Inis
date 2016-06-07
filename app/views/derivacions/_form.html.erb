@@ -23,7 +23,7 @@
         <%= collection_select(:derivacion, :departamento_id, Departamento.all, :id, :nombre,  prompt: "Seleccionar") %>
         </div>
         <br>
-        <div class="field-corp" class="f-control">
+        <div class="field-corp" class="f-control" id="myInput">
           <%= f.label :observaciones %><br>
           <%= f.text_field :observaciones %>
         </div>

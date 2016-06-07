@@ -3,7 +3,9 @@
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
     <i>*(Ingrese su correo institucional)</i><br>
-    <%= f.email_field :email, :autofocus => true, :placeholder => 'Correo Institucional' %><br>
+    <div id="myInput">
+    	<%= f.email_field :email, :autofocus => true, :placeholder => 'Correo Institucional' %><br>
+   	</div>
     <%= f.hidden_field :password, :value =>  Devise.friendly_token.first(6)%>
   
     <%= f.submit "Aceptar",:class=>'btn btn-primario' %>
