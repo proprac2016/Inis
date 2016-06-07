@@ -14,23 +14,53 @@
 }
 
 #calendar .fc-today{
-	background: #6e368a;
+	background: #B2B2B2;
 }
 
 #calendar .fc-day:hover{
-	background: #986aaf;
+	background: #96722b;
 }
 
-#calendar .fc-day-grid-event{
-	background: #96722b;
-	border-color: #b0903b;
+#calendar .fc-day-grid-event
+{
 	font-family: Goudy Old Style;
-	font-size: 11px !important;
-	font-weight: 600;
+	border-radius: 3px;
+	background-color: #507295;
+	color: #FFF;
+	text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.4);
+
 }
 
 #calendar .fc-toolbar{
-	background: #440f61;
+	
+}
+
+#calendar .fc-toolbar h2
+{
+	color: #9E9E9E !important;
+	float: left;
+	font-size: 20px !important;
+	line-height: 18px !important;
+	margin: 8px 8px 6px 0px !important;
+	text-transform: uppercase;
+}
+
+#calendar .fc-toolbar h1
+{
+	color: #440E62 !important;
+}
+
+#calendar .fc-day-number
+{
+	background: #EAF4FF none repeat scroll 0% 0%;
+	color: #440E62;
+	line-height: 13px;
+	height: 13px;
+	margin-bottom: 1px;
+	padding: 0px 0.4em;
+	font-size: 8pt;
+	text-align: right;
+	text-shadow: 0px 1px 0px #FFF;
 }
 
 #calendar .fc-center{
@@ -38,6 +68,12 @@
 	font-family: Goudy Old Style;
 }
 
+#calendar .fc-widget-header
+{
+	background: #440f61;
+	color: #9E9E9E !important;
+	text-shadow: 0px 1px 0px #FFF;
+}
 
 .fc {
 	direction: ltr;

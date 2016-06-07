@@ -2,31 +2,30 @@
 
 <head>
   <script type="text/javascript">
-function mostrar_motivos(){
-document.getElementById('listmotivos').style.display = 'block';
+    function funcion_motivos(variable){
+    // var nombre=variable;  declaracion de variables
+    document.getElementById('listmotivos').style.display = variable;
+    }
+    
 
-}
-function ocultar_motivos(){
-document.getElementById('listmotivos').style.display = 'none';
+    function funcion_aulas(variable){
+     
+    document.getElementById('listAulas').style.display = variable;
 
-}
+    }
+   
 
-function mostrar_aulas(){
-document.getElementById('listAulas').style.display = 'block';
+    function funcion_departamentos(variable){
+    document.getElementById('listDepartamentos').style.display = variable;
+    }
+    
 
-}
-function ocultar_aulas(){
-document.getElementById('listAulas').style.display = 'none';
-}
-
-function mostrar_departamentos(){
-document.getElementById('listDepartamentos').style.display = 'block';
-
-}
-function ocultar_departamentos(){
-document.getElementById('listDepartamentos').style.display = 'none';
-//document.getElementById('dpto').className = "";
-}
+</script>
+<script type="text/javascript">
+    function mostar_calendario(nombre){
+      var resultado = nombre;
+    document.getElementById('calendar').style.display = resultado;
+    }
 
 </script>
 
@@ -41,9 +40,10 @@ document.getElementById('listDepartamentos').style.display = 'none';
           <div class="text-center screen-only">
             <br><br>
             <div class="btn-group">
-              <a class="btn btn-default active" href="https://portalalumno.uap.edu.ar/home"><span class="glyphicon glyphicon-hand-up"> </span></a>
-              <a class="btn btn-default " href="https://portalalumno.uap.edu.ar/academic_file">Entrevistas</a>
-              <a class="btn btn-default " href="https://portalalumno.uap.edu.ar/finances">Derivaciones</a>
+              <a class="btn btn-default active" href="/users/sign_in">
+              <i class="fa fa-home"></i></a>
+              <a class="btn btn-default" onclick ="mostar_calendario('block'),funcion_motivos('none'), funcion_aulas('none'), funcion_departamentos('none')">Entrevistas</a>
+              <a class="btn btn-default" href="https://portalalumno.uap.edu.ar/finances">Derivaciones</a>
               <div class="btn-group" role="group">
                 <button type="button" class="btn btn-default dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Otros
@@ -51,15 +51,16 @@ document.getElementById('listDepartamentos').style.display = 'none';
                 </button>
                 <ul class="dropdown-menu">
                   <li ><a href="https://portalalumno.uap.edu.ar/documents">Historial</a></li>
-                  <li ><a onclick="mostrar_aulas(), ocultar_motivos(),  ocultar_departamentos()">Aulas</a></li>
-                  <li ><a onclick="mostrar_motivos(), ocultar_aulas(), ocultar_departamentos()">Motivos</a></li>
-                   <li ><a onclick="mostrar_departamentos(), ocultar_aulas(), ocultar_motivos()">Departamentos</a></li>
+                  <li ><a onclick="funcion_aulas('block'), funcion_motivos('none'), funcion_departamentos('none'),mostar_calendario('none')">Aulas</a></li>
+
+                  <li ><a onclick="funcion_motivos('block'), funcion_aulas('none'), funcion_departamentos('none'), mostar_calendario('none')">Motivos</a></li>
+
+                   <li ><a onclick="funcion_departamentos('block'), funcion_aulas('none'), funcion_motivos('none'),mostar_calendario('none')">Departamentos</a></li>
                 </ul>
               </div>
             </div>
             <br><br>
-          </div>  
-                
+          </div>                  
         </div>
 
            
@@ -72,7 +73,7 @@ document.getElementById('listDepartamentos').style.display = 'none';
                 <table class="table table-hover">
                   <thead>
                     <tr>
-                      <th><h2> Tipo </h2></th>
+                      <th>Tipos de Motivos</th>
                       <th colspan="3"></th>
                     </tr>
                   </thead>
@@ -118,7 +119,7 @@ document.getElementById('listDepartamentos').style.display = 'none';
                         <td><%= aula.nombre %></td>
                         <td><%= aula.capacidad %></td>
                         <td><%= link_to 'Modificar', edit_aula_path(aula),class:'btn btn-success' %></td>
-                        <td><%= link_to 'Eliminar', aula,class:'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td><%= link_to 'Eliminar', aula,class:'btn btn-danger', method: :delete, data: { confirm: 'Seguro que desea eliminar a'+ 'aula.nombre'} %></td>
                       </tr>
                     <% end %>
                   </tbody>
@@ -165,7 +166,8 @@ document.getElementById('listDepartamentos').style.display = 'none';
           </div>
         </div>
 
-
+        <div id="calendar" style="display: block;"></div>
+        <br><br><br><br><br>
     </article>
   </section>
 </section>

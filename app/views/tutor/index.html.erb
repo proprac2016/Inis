@@ -2,32 +2,25 @@
 
 <head>
 <script type="text/javascript">
-function mostrar_entrevistas(){
-document.getElementById('listEntrevistas').style.display = 'block';
-document.getElementById('entre').className = "active";
-}
-function ocultar_entrevistas(){
-document.getElementById('listEntrevistas').style.display = 'none';
-document.getElementById('entre').className = "";
+function funcion_entrevistas(variable){
+document.getElementById('listEntrevistas').style.display = variable;
 }
 
-function mostrar_horarios(){
-document.getElementById('listHorarios').style.display = 'block';
-document.getElementById('horario').className = "active";
-}
-function ocultar_horarios(){
-document.getElementById('listHorarios').style.display = 'none';
-document.getElementById('horario').className = "";
+function funcion_horarios(variable){
+document.getElementById('listHorarios').style.display = variable;
 }
 
-function mostrar_derivaciones(){
-document.getElementById('listDerivaciones').style.display = 'block';
-document.getElementById('derivacion').className = "active";
+function funcion_derivaciones(variable){
+document.getElementById('listDerivaciones').style.display = variable;
 }
-function ocultar_derivaciones(){
-document.getElementById('listDerivaciones').style.display = 'none';
-document.getElementById('derivacion').className = "";
-}
+</script>
+
+<script type="text/javascript">
+    function mostar_calendario(nombre){
+      var resultado = nombre;
+    document.getElementById('calendar').style.display = resultado;
+    }
+
 </script>
 
 </head>
@@ -37,34 +30,22 @@ document.getElementById('derivacion').className = "";
 <section id="main">
     <section class="inner">
       <article class="container">  
-        <div id="links" class="span8 screen-only">
-          <div class="">
+        <div class="container" id="yield_container" >
 
-          <!--  Menu Principal Administrar-->
-            <ul class="nav nav-pills pull-right" style="font-size:12px;">
-
-              <li id="entre" class="">
-                <a onclick="mostrar_entrevistas(), ocultar_horarios(),  ocultar_derivaciones()">Entrevistas<i id="bmk-count"></i></a>
-              </li>
-
-              <li id="horario" class="">
-                <a onclick="mostrar_horarios(), ocultar_entrevistas(), ocultar_derivaciones()">Horarios<i id="bmk-count"></i></a>        
-              </li>
-
-              <li id="derivacion" class="">
-                <a onclick="mostrar_derivaciones(), ocultar_horarios(), ocultar_entrevistas()">Derivaciones<i id="bmk-count"></i></a>        
-              </li>
-              
-            </ul>
-          </div>
+          <div class="text-center screen-only">
+            <br><br>
+            <div class="btn-group">
+              <a class="btn btn-default active" href="/users/sign_in">
+              <i class="fa fa-home"></i></a>
+              <a class="btn btn-default" onclick ="mostar_calendario('block'),funcion_entrevistas('none'), funcion_horarios('none'), funcion_derivaciones('none')">Entrevistas</a>
+              <%= link_to 'Horarios', new_event_path, class:'btn btn-default' %>
+              <a class="btn btn-default">Historial</a>
+            </div>
+          </div>                  
         </div>
 
         <!-- ENTREVISTAS -->
 
-        
-          <div class="form-content">
-            <div class="row-fluid">
-              <div class="container">
               <div id="listEntrevistas" style="display: none;"  >
                 <table class="table table-hover">
                   <thead>
@@ -92,9 +73,6 @@ document.getElementById('derivacion').className = "";
                 <br>
               </div>
               <br>
-              </div>
-            </div>
-          </div>
 
         <!-- HORARIOS -->  
 
@@ -139,9 +117,7 @@ document.getElementById('derivacion').className = "";
         <!-- DERIVACIONES -->
 
         <div id="listDerivaciones" style="display: none;"  >
-          <div class="form-content">
-            <div class="row-fluid">
-              <div class="container">
+          
                 <h1>Derivaciones</h1>
                   <table>
                     <thead>
@@ -165,19 +141,9 @@ document.getElementById('derivacion').className = "";
                   <br>
                   <%= link_to 'New Derivacion', new_derivacion_path %>
                 <br>
-                <br>
-                <br>
-                <br>
-                <br>
-              </div>
-              <br>
-            </div>
-          </div>
         </div>
-        <br>
-        <br>
-        <br>
-        <br>
+        <div id="calendar" style="display: block;"></div>
+        <br><br><br><br><br>
       </article>
     </section>
   </section>
